@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>锈星工坊</title>
+<link rel="stylesheet" href="css/style.css?v=1.0">
+</head>
+<body>
+<canvas id="game"></canvas>
+<canvas id="overlay"></canvas>
+<div id="vignette"></div>
+
+<div id="topleft">
+  <div class="brand">锈星工坊 <small>v1.0</small></div>
+  <div id="research"></div>
+  <div class="btns">
+    <button id="btn-inv">背包 E</button><button id="btn-tech">科技 T</button><button id="btn-save">保存 F5</button><button id="btn-help">帮助</button><button id="btn-new">新游戏</button>
+  </div>
+  <div id="hint"></div>
+</div>
+<div id="topright">
+  <canvas id="minimap" width="192" height="192"></canvas>
+  <div id="info"></div>
+</div>
+<div id="queue"></div>
+<div id="bottom">
+  <div id="cursor-info"></div>
+  <div id="quickbar"></div>
+</div>
+
+<div id="panel-inv" class="panel hidden">
+  <div class="col">
+    <div class="ptitle" id="inv-title">背包</div>
+    <div class="grid" id="inv-grid"></div>
+  </div>
+  <div class="col" id="side"></div>
+</div>
+
+<div id="panel-tech" class="panel hidden">
+  <div class="ptitle">科技研究 <span class="dim">— 点击选择要研究的科技，研究站会消耗数据卡完成它</span><span class="x" data-act="close">✕</span></div>
+  <div id="tech-body"></div>
+</div>
+
+<div id="help" class="hidden">
+  <div class="helpbox">
+    <h2>锈星工坊 · 操作说明</h2>
+    <p>你的登陆舱坠毁在一颗锈色星球上。采集资源、搭建自动化生产线、研究科技，最终造出<b>求救信标</b>把信号发出去。</p>
+    <table>
+      <tr><td>WASD</td><td>移动</td></tr>
+      <tr><td>右键（按住）</td><td>采集矿石 / 砍树 / 拆除建筑</td></tr>
+      <tr><td>左键</td><td>放置手中建筑（可拖动连续放置）/ 打开建筑面板</td></tr>
+      <tr><td>R / Shift+R</td><td>旋转</td></tr>
+      <tr><td>Q</td><td>放下手中物品 / 吸取鼠标下建筑</td></tr>
+      <tr><td>E</td><td>背包与手搓合成</td></tr>
+      <tr><td>T</td><td>科技树</td></tr>
+      <tr><td>1–0</td><td>快捷栏</td></tr>
+      <tr><td>Alt</td><td>显示/隐藏进出方向和配方图标（默认显示）</td></tr>
+      <tr><td>滚轮</td><td>缩放</td></tr>
+      <tr><td>F5</td><td>保存（每分钟也会自动保存）</td></tr>
+      <tr><td>M</td><td>音效开关</td></tr>
+    </table>
+    <p><b>起步建议：</b>把燃料钻机放在铁矿上，黄色出料口正对石炉；<b>它们烧燃料、不用电</b>，点开机器后把背包里的木材或煤放进去。机器头上有图标时，把鼠标移上去能看到原因。手搓更多钻机和熔炉，再用传送带和机械臂把它们连起来。
+    想用电：抽水泵放在水边 → 锅炉 → 蒸汽机，用电线杆把电送到组装机、电力钻机和研究站。</p>
+    <p class="dim">点击任意处关闭</p>
+  </div>
+</div>
+<div id="intro" class="story hidden"></div>
+<div id="win" class="story hidden"></div>
+<div id="tip"></div>
+<div id="toasts"></div>
+
+<script src="js/data.js?v=1.0"></script>
+<script src="js/world.js?v=1.0"></script>
+<script src="js/entities.js?v=1.0"></script>
+<script src="js/sim.js?v=1.0"></script>
+<script src="js/sfx.js?v=1.0"></script>
+<script src="js/guide.js?v=1.0"></script>
+<script src="vendor/three.js?v=1.0"></script>
+<script src="js/gfx/core.js?v=1.0"></script>
+<script src="js/gfx/terrain.js?v=1.0"></script>
+<script src="js/gfx/models_a.js?v=1.0"></script>
+<script src="js/gfx/models_b.js?v=1.0"></script>
+<script src="js/gfx/models_c.js?v=1.0"></script>
+<script src="js/gfx/models_d.js?v=1.0"></script>
+<script src="js/gfx/items.js?v=1.0"></script>
+<script src="js/gfx/scene.js?v=1.0"></script>
+<script src="js/render.js?v=1.0"></script>
+<script src="js/ui.js?v=1.0"></script>
+<script src="js/main.js?v=1.0"></script>
+<script>G.start();</script>
+</body>
+</html>
